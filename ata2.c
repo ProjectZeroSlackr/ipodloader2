@@ -510,7 +510,7 @@ static int ata_readblock2(void *dst, uint32 sector, int storeInCache) {
     cachetick[cacheindex] = cacheticks;
   }
 
-  if(!drive_supports_lba48 && (sector > 0x0F000000)) {
+  if(!drive_supports_lba48 && (sector > 0x0FFFFFFF)) {
     /* The sector is too large for the current addressing scheme */
     mlc_printf("Sector %u is too large for LBA28 addressing.\n", sector);
     mlc_show_fatal_error ();
